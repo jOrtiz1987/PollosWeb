@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="./css/default.css" rel="stylesheet" type="text/css" />
+<link href="./css/cssLayout.css" rel="stylesheet" type="text/css" />
+<title>Pollos el Rey</title>
+</head>
+
+<body>
+
+
+<div id="top_menu"><f:view>
+	<h:form>
+					<rich:toolBar>
+			
+
+			<rich:dropDownMenu>
+				<f:facet name="label">
+					<h:outputText value="Fin de Semana" />
+				</f:facet>
+				<rich:menuItem  icon="/imagenes/carpeta.png"  value="Pago de Empleados"
+					action="#{pagoEmpleadosBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/modalidad.png" value="Registro de Venta"
+					action="#{materiaBean.regresarPrincipal}" />
+			</rich:dropDownMenu>
+			<rich:dropDownMenu>
+				<f:facet name="label">
+					<h:outputText value="Reportes" />
+				</f:facet>
+			</rich:dropDownMenu>
+			<rich:dropDownMenu>
+				<f:facet name="label">
+					<h:outputText value="Catálogos" />
+				</f:facet>
+				<rich:menuItem icon="/imagenes/auxiliar.png" value="Actividades"
+					action="#{actividadBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/bancaria.png" value="Comida"
+					action="#{comidaBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/combo_box.png" value="Empleados"
+					action="#{empleadoBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/bancos.png" value="Gastos"
+					action="#{gastoBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/bancos.png" value="Productos"
+					action="#{productoBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/partida.png" value="Piezas"
+					action="#{piezaBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/lock.png" value="Remolques"
+					action="#{remolqueBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/catalogo.png" value="Servicios"
+					action="#{servicioBean.llenarTabla}" />
+				<rich:menuItem icon="/imagenes/partida.png" value="Semana"
+					action="#{semanaBean.llenarTabla}" />
+			</rich:dropDownMenu>
+			<rich:dropDownMenu>
+				<f:facet name="label">
+					<h:outputText value="Archivo" />
+				</f:facet>
+				<rich:menuItem icon="/imagenes/Salir.png" value="Salir" action="#{semestreBean.llenaLista}" />
+			</rich:dropDownMenu>
+		</rich:toolBar>
+	</h:form>
+</f:view></div>
+<div>
+<div id="left"><ui:insert name="left">Left</ui:insert></div>
+<div id="content" class="left_content"><ui:insert name="content">Right</ui:insert>
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich">
+<head>
+<title>Pollos el Rey</title>
+</head>
+<body>
+<ui:composition template="./template2.xhtml">
+	<ui:define name="content">
+		<f:view>
+			<center><h:panelGrid width="300px" columns="2" border="0">
+				<rich:panel header="Pollos" style="background-color: #ebf3fd;">
+					<h:form id="IndexForm">
+						<h:panelGrid id="lpg" columns="1">
+							<h:commandButton value="Exportador Excel" action="#{indexBean.exportarExcel}" styleClass="submitButton" />
+							<h:commandButton value="Menu Principal" action="#{indexBean.menuPrincipal}" styleClass="submitButton" />
+						</h:panelGrid>
+					</h:form>
+				</rich:panel>
+			</h:panelGrid></center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</body>
+</html>

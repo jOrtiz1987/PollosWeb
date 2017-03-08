@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+<ui:composition template="../template.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center>
+				<rich:panel id="pnactividades" style="height:300px;width: 600px;">
+					<h:form>
+					<h:outputText value="" />
+					<h:panelGrid id="lpg" columns="2">
+						<h:outputText value="No. Actividad: " />
+						<h:inputText id="numeroActividad" value="#{actividadBean.actividad.idActividad}"/>
+						<h:outputText id="lblDescripcion" value="Descripcion: " />
+						<h:inputText id="inputDescripcion" value="#{actividadBean.actividad.descripcion}"/>
+						<h:outputText value="" />
+						<rich:message id="msjP" for="insPsw"
+							style="color:Red;font-size:small;font-family:Arial;" />
+						<h:outputText value="" />
+					</h:panelGrid>
+					<rich:dataTable value="#{actividadBean.actividades}" var="actividadLista"
+						align="center">
+						<f:facet name="header">
+							<h:outputText value="Lista Actividades" />
+						</f:facet>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Actividad" />
+							</f:facet>
+							<h:outputText value="#{actividadLista.idActividad}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Descripcion" />
+							</f:facet>
+							<h:outputText value="#{actividadLista.descripcion}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Importe" />
+							</f:facet>
+							<h:outputText value="#{actividadLista.importe}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Validez" />
+							</f:facet>
+							<h:outputText value="#{actividadLista.valides}" />
+						</rich:column>
+						<rich:column align="center">
+							<f:facet name="header">
+								<h:outputText value="Borrar" />
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="eliminarLink"
+								action="#{actividadBean.borrar}">
+								<h:graphicImage value="../imagenes/borrar.png" style="border:0" width="20" height="20" />
+								<f:param id="idActividad" name="idActividad" value="#{actividadLista.idActividad}" />
+							</a4j:commandLink>
+							</rich:column>
+						<rich:column align="center">
+							<f:facet name="header" >
+								<h:outputText value="Modificar" />
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="modificarLink"
+								action="#{actividadBean.modificar}">
+								<h:graphicImage value="../imagenes/modificar.png" style="border:0" width="20" height="20" aling="center"/>
+								<f:param id="idActividadM" name="idActividadM" value="#{actividadLista.idActividad}" />
+							</a4j:commandLink>
+						</rich:column>
+					</rich:dataTable>
+					<h:commandButton id="cbtnAgregar" value="Agregar" action="#{actividadBean.inicioAgregar}" />
+					<h:commandButton id="cbtnBuscar" value="Buscar" action="#{actividadBean.buscar}" />
+					</h:form>
+				</rich:panel>
+			</center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>

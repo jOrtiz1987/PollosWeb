@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+<ui:composition template="../template.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center>
+				<rich:panel id="pncomidas" style="height:300px;width: 600px;">
+					<h:form>
+					<h:outputText value="" />
+					<h:panelGrid id="lpg" columns="2">
+						<h:outputText value="No. Comida: " />
+						<h:inputText id="numeroComida" value="#{comidaBean.comida.idComida}"/>
+						<h:outputText id="lblPollo" value="Pollo: " />
+						<h:inputText id="inputPollo" value="#{comidaBean.comida.pollo}" />
+						<h:outputText id="lblPapas" value="Papas: " />
+						<h:inputText id="inputPapas" value="#{comidaBean.comida.papas}" />
+						<h:outputText value="" />
+						<rich:message id="msjP" for="insPsw"
+							style="color:Red;font-size:small;font-family:Arial;" />
+						<h:outputText value="" />
+					</h:panelGrid>
+					<rich:dataTable value="#{comidaBean.comidas}" var="comidaLista"
+						align="center">
+						<f:facet name="header">
+							<h:outputText value="Lista Comidas" />
+						</f:facet>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Comida" />
+							</f:facet>
+							<h:outputText value="#{comidaLista.idComida}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Pollo" />
+							</f:facet>
+							<h:outputText value="#{comidaLista.pollo}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Papas" />
+							</f:facet>
+							<h:outputText value="#{comidaLista.papas}" />
+						</rich:column>
+						<rich:column align="center">
+							<f:facet name="header">
+								<h:outputText value="Borrar" />
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="eliminarLink"
+								action="#{comidaBean.borrar}">
+								<h:graphicImage value="../imagenes/borrar.png" style="border:0" width="20" height="20" />
+								<f:param id="idComida" name="idComida" value="#{comidaLista.idComida}" />
+							</a4j:commandLink>
+							</rich:column>
+						<rich:column align="center">
+							<f:facet name="header" >
+								<h:outputText value="Modificar" />
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="modificarLink"
+								action="#{comidaBean.modificar}">
+								<h:graphicImage value="../imagenes/modificar.png" style="border:0" width="20" height="20" aling="center"/>
+								<f:param id="idComidaM" name="idComidaM" value="#{comidaLista.idComida}" />
+							</a4j:commandLink>
+						</rich:column>
+					</rich:dataTable>
+					<h:commandButton id="cbtnAgregar" value="Agregar" action="#{comidaBean.inicioAgregar}" />
+					<h:commandButton id="cbtnBuscar" value="Buscar" action="#{comidaBean.buscar}" />
+					</h:form>
+				</rich:panel>
+			</center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>

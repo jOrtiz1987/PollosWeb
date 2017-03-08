@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+<ui:composition template="../template.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center>
+				<rich:panel id="pnproductos" style="height:300px;width: 600px;">
+					<h:form>
+					<h:outputText value="" />
+					<h:panelGrid id="lpg" columns="2">
+						<h:outputText value="No. Producto: " />
+						<h:inputText id="numeroProducto" value="#{productoBean.producto.idProducto}"/>
+						<h:outputText id="lblDescripcion" value="Descripcion: " />
+						<h:inputText id="inputDescripcion" value="#{productoBean.producto.descripcion}"/>
+						<h:outputText value="" />
+						<rich:message id="msjP" for="insPsw"
+							style="color:Red;font-size:small;font-family:Arial;" />
+						<h:outputText value="" />
+					</h:panelGrid>
+					<rich:dataTable value="#{productoBean.productos}" var="productoLista"
+						align="center">
+						<f:facet name="header">
+							<h:outputText value="Lista Productos" />
+						</f:facet>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Producto" />
+							</f:facet>
+							<h:outputText value="#{productoLista.idProducto}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Descripcion" />
+							</f:facet>
+							<h:outputText value="#{productoLista.descripcion}" />
+						</rich:column>
+						<rich:column align="center">
+							<f:facet name="header">
+								<h:outputText value="Borrar" />
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="eliminarLink"
+								action="#{productoBean.borrar}">
+								<h:graphicImage value="../imagenes/borrar.png" style="border:0" width="20" height="20" />
+								<f:param id="idProducto" name="idProducto" value="#{productoLista.idProducto}" />
+							</a4j:commandLink>
+							</rich:column>
+						<rich:column align="center">
+							<f:facet name="header" >
+								<h:outputText value="Modificar" />
+							</f:facet>
+							<a4j:commandLink ajaxSingle="true" id="modificarLink"
+								action="#{productoBean.modificar}">
+								<h:graphicImage value="../imagenes/modificar.png" style="border:0" width="20" height="20" aling="center"/>
+								<f:param id="idProductoM" name="idProductoM" value="#{productoLista.idProducto}" />
+							</a4j:commandLink>
+						</rich:column>
+					</rich:dataTable>
+					<h:commandButton id="cbtnAgregar" value="Agregar" action="#{productoBean.inicioAgregar}" />
+					<h:commandButton id="cbtnBuscar" value="Buscar" action="#{productoBean.buscar}" />
+					</h:form>
+				</rich:panel>
+			</center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>

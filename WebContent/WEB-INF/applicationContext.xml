@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">  
+   	
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="locations">  
+            <list>  
+                <value>classpath:jdbc.properties</value>  
+            </list>  
+        </property>  
+    </bean>     
+   	<!-- ···························· -->
+	<!-- Configuracion del datasource -->
+	<!-- ···························· -->  
+  
+    <bean id="dataSource"  
+        class="org.apache.commons.dbcp.BasicDataSource"  
+        destroy-method="close">  
+        <property name="driverClassName">  
+            <value>com.mysql.jdbc.Driver</value>  
+        </property>  
+        <property name="url">  
+            <value>${url}</value>  
+        </property>  
+        <property name="username">   
+            <value>${usuario}</value>   
+        </property>  
+        <property name="password">    
+            <value>${pass}</value>  
+        </property>  
+    </bean> 
+  
+	<!-- ·························· -->
+	<!-- Configuracion de hibernate -->
+	<!-- ·························· -->    
+  
+    <bean id="sessionFactory"  
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">  
+        <property name="dataSource">  
+            <ref bean="dataSource" />  
+        </property>  
+        <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration"/>
+        <property name="packagesToScan">
+            <list>
+                <value>com.mx.pollos.model</value>                
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQLDialect
+                hibernate.query.substitutions=true 'Y', false 'N'
+                hibernate.cache.use_second_level_cache=true
+                hibernate.cache.provider_class
+                hibernate.show_sql=false
+   				hibernate.c3p0.testConnectionOnCheckout=false
+   				hibernate.transaction.auto_close_session=true 				
+            </value>
+        </property>
+        
+    </bean>  
+      
+    <bean id="transactionManager"  
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>  
+      
+    <!-- ······················································ -->  
+    <!-- Definicion de los DAO a utilizar por la aplicacion     -->  
+    <!-- ······················································ -->  
+    <bean id="actividadDAO"  
+        class="com.mx.pollos.DAO.impl.ActividadDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="comidaDAO"  
+        class="com.mx.pollos.DAO.impl.ComidaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>
+    <bean id="compraProductoDAO"  
+        class="com.mx.pollos.DAO.impl.CompraProductoDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="consolidadoVentaRemolqueDAO"  
+        class="com.mx.pollos.DAO.impl.ConsolidadoVentaRemolqueDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>
+    <bean id="diaDAO"  
+        class="com.mx.pollos.DAO.impl.DiaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="empleadoActividadDAO"  
+        class="com.mx.pollos.DAO.impl.EmpleadoActividadDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="empleadoDAO"  
+        class="com.mx.pollos.DAO.impl.EmpleadoDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="gananciaDAO"  
+        class="com.mx.pollos.DAO.impl.GananciaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="gastoDAO"  
+        class="com.mx.pollos.DAO.impl.GastoDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="gastoSemanaDAO"  
+        class="com.mx.pollos.DAO.impl.GastoSemanaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>  
+    <bean id="movimientoPapasDAO"  
+        class="com.mx.pollos.DAO.impl.MovimientoPapasDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="movimientoPollosDAO"  
+        class="com.mx.pollos.DAO.impl.MovimientoPollosDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="piezaDAO"  
+        class="com.mx.pollos.DAO.impl.PiezaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <bean id="productoDAO"  
+        class="com.mx.pollos.DAO.impl.ProductoDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="remolqueDAO"  
+        class="com.mx.pollos.DAO.impl.RemolqueDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="semanaDAO"  
+        class="com.mx.pollos.DAO.impl.SemanaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>  
+ 
+    <bean id="semanaDiaDAO"  
+        class="com.mx.pollos.DAO.impl.SemanaDiaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean>  
+    
+    <bean id="servicioCompraDAO"  
+        class="com.mx.pollos.DAO.impl.ServicioCompraDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="servicioDAO"  
+        class="com.mx.pollos.DAO.impl.ServicioDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    
+    <bean id="ventaRemolqueDAO"  
+        class="com.mx.pollos.DAO.impl.VentaRemolqueDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+ 
+ 	<bean id="ventaRemolquePiezaDAO"  
+        class="com.mx.pollos.DAO.impl.VentaRemolquePiezaDAOImpl">  
+        <property name="sessionFactory" ref="sessionFactory" />  
+    </bean> 
+    <!-- ······················································ -->  
+    <!-- Definicion de los Managers a utilizar por la aplicacion     -->  
+    <!-- ······················································ -->  
+	
+	<bean id="ingresoService" 
+    	class="com.mx.pollos.service.impl.IngresoServiceImpl" >
+	    <property name="compraProductoDAO" ref="compraProductoDAO" />
+	    <property name="productoDAO" ref="productoDAO" />
+	    <property name="semanaService" ref="semanaService" />
+	    <property name="servicioDAO" ref="servicioDAO" />
+	    <property name="servicioCompraDAO" ref="servicioCompraDAO" />
+    </bean>
+    
+    <bean id="empleadoService" 
+    	class="com.mx.pollos.service.impl.EmpleadoServiceImpl" >
+	    <property name="actividadDAO" ref="actividadDAO" />
+	    <property name="empleadoDAO" ref="empleadoDAO" />
+	    <property name="empleadoActividadDAO" ref="empleadoActividadDAO" />
+	    <property name="semanaService" ref="semanaService" />
+    </bean>
+    
+     <bean id="ventaService" 
+    	class="com.mx.pollos.service.impl.VentaServiceImpl" >
+	    <property name="comidaDAO" ref="comidaDAO" />
+        <property name="consolidadoVentaRemolqueDAO" ref="consolidadoVentaRemolqueDAO" />
+        <property name="ventaRemolqueDAO" ref="ventaRemolqueDAO" />
+        <property name="ventaRemolquePiezaDAO" ref="ventaRemolquePiezaDAO" />
+        <property name="piezaDAO" ref="piezaDAO" />
+        <property name="remolqueDAO" ref="remolqueDAO" />
+        <property name="semanaService" ref="semanaService" />
+        <property name="movimientoPapasDAO" ref="movimientoPapasDAO" />
+        <property name="movimientoPollosDAO" ref="movimientoPollosDAO" />
+        <property name="empleadoService" ref="empleadoService" />
+    </bean>        
+    
+    <bean id="gastosService" 
+    	class="com.mx.pollos.service.impl.GastosServiceImpl" >
+	    <property name="gastoDAO" ref="gastoDAO" />
+        <property name="gastoSemanaDAO" ref="gastoSemanaDAO" />
+        <property name="semanaService" ref="semanaService" />
+        <property name="ventaService" ref="ventaService" />
+    </bean>
+    
+    <bean id="semanaService" 
+    	class="com.mx.pollos.service.impl.SemanaServiceImpl" >
+	    <property name="semanaDAO" ref="semanaDAO" />
+        <property name="semanaDiaDAO" ref="semanaDiaDAO" />
+        <property name="diaDAO" ref="diaDAO" />
+    </bean>
+    
+    <bean id="gananciaService" 
+    	class="com.mx.pollos.service.impl.GananciaServiceImpl" >
+	    <property name="gananciaDAO" ref="gananciaDAO" />
+	    <property name="semanaService" ref="semanaService" />
+    </bean>
+    
+  </beans>

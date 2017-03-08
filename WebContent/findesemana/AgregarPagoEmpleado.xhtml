@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<title>Agregar/Modificar Pago Empleado</title>
+</head>
+<body>
+
+<ui:composition template="../template2.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center><h:panelGrid columns="3" border="0">
+				<rich:panel header="Modificar/Agregar Pago Empleado" style="background-color: #ebf3fd;">
+					<h:form id="ModifucarPagoEmpleadoForm">
+						<h:panelGrid id="lpg" columns="3">		
+							<h:outputText  value="Semana  "></h:outputText>
+							<rich:comboBox value="#{pagoEmpleadosBean.empleadoActividad.semana}" suggestionValues="#{pagoEmpleadosBean.semanas}" defaultLabel="Seleccione una semana..." /><br/>
+							<h:outputText  value="Empleado  "></h:outputText>
+							<rich:comboBox value="#{pagoEmpleadosBean.empleadoActividad.empleado}" suggestionValues="#{pagoEmpleadosBean.empleados}" defaultLabel="Seleccione un empleado..." /><br/>
+							<h:outputText  value="Actividad  "></h:outputText>
+							<rich:comboBox value="#{pagoEmpleadosBean.empleadoActividad.actividad}" suggestionValues="#{pagoEmpleadosBean.actividades}" defaultLabel="Seleccione una actividad..." /><br/>
+							<h:commandButton id="cbtnGuardar" value="Guardar" action="#{pagoEmpleadosBean.agregar}" />
+							<h:commandButton id="cbtnCancelar" value="Cancelar" action="#{pagoEmpleadosBean.llenarTabla}" /><br/>
+						</h:panelGrid>	
+					</h:form>
+				</rich:panel>
+			</h:panelGrid></center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</body>
+</html>

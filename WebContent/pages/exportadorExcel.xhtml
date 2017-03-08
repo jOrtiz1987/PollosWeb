@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich">
+	
+<ui:composition template="../template2.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center><h:panelGrid columns="2" border="0">
+				<rich:panel header="Exportador Excel" style="background-color: #ebf3fd;">
+					<h:form id="ExportadorForm">
+						<h:commandButton value="Procesar Archivo" action="#{exportadorExcelBean.procesarArchivo}" styleClass="submitButton" />
+						<h:commandButton value="Guardar" action="#{exportadorExcelBean.exportarBD}" styleClass="submitButton" />
+						<!-- <rich:calendar value="#{exportadorExcelBean.selectedDate}" id="calendar"  buttonLabel="Calendario"
+                    		cellWidth="24px" cellHeight="22px" style="width:200px"></rich:calendar> -->
+						<h:panelGrid id="ganancia" columns="2">
+							<h:outputText value="Ganancia: "/>
+							<h:outputText value="#{exportadorExcelBean.gananciaFin}"/>
+						</h:panelGrid>
+						<h:panelGrid id="sabado" columns="2">
+							<h:panelGrid id="ventaS" columns="5">
+							
+								<h:outputText value="Sabado"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.pollosTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPanteones}"/>
+								
+								<h:outputText value="Papas"/>
+								<h:outputText value="#{exportadorExcelBean.papasTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.papasSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.papasCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.papasPanteones}"/>
+								
+								<h:outputText value="Pollos Mov"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovPanteones}"/>
+								
+								<h:outputText value="Papas Mov"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovPanteones}"/>
+								
+								<h:outputText value="Venta Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosPanteones}"/>
+								
+								<h:outputText value="Venta Papas"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasPanteones}"/>
+								
+								<h:outputText value="Venta Total"/>
+								<h:outputText value="#{exportadorExcelBean.ventaTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPanteones}"/>
+								
+								<h:outputText value="Maletin"/>
+								<h:outputText value="#{exportadorExcelBean.maletinTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.maletinSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.maletinCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.maletinPanteones}"/>
+								
+								<h:outputText value="Comida"/>
+								<h:outputText value="#{exportadorExcelBean.comidaTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.comidaSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.comidaCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.comidaPanteones}"/>
+								
+								<h:outputText value="Refresco"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoPanteones}"/>
+								
+								<h:outputText value="Piezas"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasPanteones}"/>
+								
+								<h:outputText value="Descuentos"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosPanteones}"/>
+								
+								<h:outputText value="Pollos Quedaron"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronPanteones}"/>
+								
+								<h:outputText value="Dinero Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroPanteones}"/>
+								
+								<h:outputText value="Otros Gastos"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosPanteones}"/>
+								
+								<h:outputText value="Dinero"/>
+								<h:outputText value="#{exportadorExcelBean.dineroTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.dineroSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.dineroCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.dineroPanteones}"/>
+								
+								<h:outputText value="Billetes"/>
+								<h:outputText value="#{exportadorExcelBean.billetesTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.billetesSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.billetesCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.billetesPanteones}"/>
+								
+								<h:outputText value="Monedas"/>
+								<h:outputText value="#{exportadorExcelBean.monedasTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.monedasSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.monedasCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.monedasPanteones}"/>
+								
+								<h:outputText value="Total"/>
+								<h:outputText value="#{exportadorExcelBean.totalTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.totalSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.totalCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.totalPanteones}"/>
+								
+								<h:outputText value="Diferencia"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaPanteones}"/>
+							</h:panelGrid>
+						
+							<h:panelGrid id="piezasS" columns="5">
+							
+								<h:outputText value="MovimientoPollos"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="TresCruces"/>
+								<h:outputText value="#{exportadorExcelBean.tt}"/>
+								<h:outputText value="#{exportadorExcelBean.ts}"/>
+								<h:outputText value="#{exportadorExcelBean.tc}"/>
+								<h:outputText value="#{exportadorExcelBean.tp}"/>
+								
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="#{exportadorExcelBean.st}"/>
+								<h:outputText value="#{exportadorExcelBean.ss}"/>
+								<h:outputText value="#{exportadorExcelBean.sc}"/>
+								<h:outputText value="#{exportadorExcelBean.sp}"/>
+								
+								<h:outputText value="Condesa"/>
+								<h:outputText value="#{exportadorExcelBean.ct}"/>
+								<h:outputText value="#{exportadorExcelBean.cs}"/>
+								<h:outputText value="#{exportadorExcelBean.cc}"/>
+								<h:outputText value="#{exportadorExcelBean.cp}"/>
+								
+								<h:outputText value="Panteones"/>
+								<h:outputText value="#{exportadorExcelBean.pt}"/>
+								<h:outputText value="#{exportadorExcelBean.ps}"/>
+								<h:outputText value="#{exportadorExcelBean.pc}"/>
+								<h:outputText value="#{exportadorExcelBean.pp}"/>
+								
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								
+								<h:outputText value="MovimientoPapas"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="TresCruces"/>
+								<h:outputText value="#{exportadorExcelBean.tt2}"/>
+								<h:outputText value="#{exportadorExcelBean.ts2}"/>
+								<h:outputText value="#{exportadorExcelBean.tc2}"/>
+								<h:outputText value="#{exportadorExcelBean.tp2}"/>
+								
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="#{exportadorExcelBean.st2}"/>
+								<h:outputText value="#{exportadorExcelBean.ss2}"/>
+								<h:outputText value="#{exportadorExcelBean.sc2}"/>
+								<h:outputText value="#{exportadorExcelBean.sp2}"/>
+								
+								<h:outputText value="Condesa"/>
+								<h:outputText value="#{exportadorExcelBean.ct2}"/>
+								<h:outputText value="#{exportadorExcelBean.cs2}"/>
+								<h:outputText value="#{exportadorExcelBean.cc2}"/>
+								<h:outputText value="#{exportadorExcelBean.cp2}"/>
+								
+								<h:outputText value="Panteones"/>
+								<h:outputText value="#{exportadorExcelBean.pt2}"/>
+								<h:outputText value="#{exportadorExcelBean.ps2}"/>
+								<h:outputText value="#{exportadorExcelBean.pc2}"/>
+								<h:outputText value="#{exportadorExcelBean.pp2}"/>
+								
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Venta Piezas"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="2"/>
+								<h:outputText value="#{exportadorExcelBean.t2}"/>
+								<h:outputText value="#{exportadorExcelBean.s2}"/>
+								<h:outputText value="#{exportadorExcelBean.c2}"/>
+								<h:outputText value="#{exportadorExcelBean.p2}"/>
+								
+								<h:outputText value="1.5"/>
+								<h:outputText value="#{exportadorExcelBean.t15}"/>
+								<h:outputText value="#{exportadorExcelBean.s15}"/>
+								<h:outputText value="#{exportadorExcelBean.c15}"/>
+								<h:outputText value="#{exportadorExcelBean.p15}"/>
+								
+								<h:outputText value=".5"/>
+								<h:outputText value="#{exportadorExcelBean.t5}"/>
+								<h:outputText value="#{exportadorExcelBean.s5}"/>
+								<h:outputText value="#{exportadorExcelBean.c5}"/>
+								<h:outputText value="#{exportadorExcelBean.p5}"/>
+								
+								<h:outputText value=".25"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								
+								<h:outputText value="Pollos Quedaron"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronPanteones}"/>
+								
+								<h:outputText value="Papas"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronTresCruces}"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronSauceda}"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronCondesa}"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronPanteones}"/>
+								
+							</h:panelGrid>
+							
+						</h:panelGrid>
+						
+						<h:panelGrid id="domingo" columns="2">
+							<h:panelGrid id="ventaD" columns="5">
+							
+								<h:outputText value="Domingo"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.pollosTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPanteonesD}"/>
+								
+								<h:outputText value="Papas"/>
+								<h:outputText value="#{exportadorExcelBean.papasTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.papasSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.papasCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.papasPanteonesD}"/>
+								
+								<h:outputText value="Pollos Mov"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosMovPanteonesD}"/>
+								
+								<h:outputText value="Papas Mov"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.papasMovPanteonesD}"/>
+								
+								<h:outputText value="Venta Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPollosPanteonesD}"/>
+								
+								<h:outputText value="Venta Papas"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPapasPanteonesD}"/>
+								
+								<h:outputText value="Venta Total"/>
+								<h:outputText value="#{exportadorExcelBean.ventaTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.ventaPanteonesD}"/>
+								
+								<h:outputText value="Maletin"/>
+								<h:outputText value="#{exportadorExcelBean.maletinTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.maletinSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.maletinCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.maletinPanteonesD}"/>
+								
+								<h:outputText value="Comida"/>
+								<h:outputText value="#{exportadorExcelBean.comidaTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.comidaSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.comidaCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.comidaPanteonesD}"/>
+								
+								<h:outputText value="Refresco"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.refrescoPanteonesD}"/>
+								
+								<h:outputText value="Piezas"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosPiezasPanteonesD}"/>
+								
+								<h:outputText value="Descuentos"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.descuentosPanteonesD}"/>
+								
+								<h:outputText value="Pollos Quedaron"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronPanteonesD}"/>
+								
+								<h:outputText value="Dinero Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.pollosQuedaronDineroPanteonesD}"/>
+								
+								<h:outputText value="Otros Gastos"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.otrosGastosPanteonesD}"/>
+								
+								<h:outputText value="Dinero"/>
+								<h:outputText value="#{exportadorExcelBean.dineroTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.dineroSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.dineroCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.dineroPanteonesD}"/>
+								
+								<h:outputText value="Billetes"/>
+								<h:outputText value="#{exportadorExcelBean.billetesTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.billetesSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.billetesCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.billetesPanteonesD}"/>
+								
+								<h:outputText value="Monedas"/>
+								<h:outputText value="#{exportadorExcelBean.monedasTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.monedasSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.monedasCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.monedasPanteonesD}"/>
+								
+								<h:outputText value="Total"/>
+								<h:outputText value="#{exportadorExcelBean.totalTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.totalSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.totalCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.totalPanteonesD}"/>
+								
+								<h:outputText value="Diferencia"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.diferenciaPanteonesD}"/>
+							</h:panelGrid>
+						
+							<h:panelGrid id="piezasD" columns="5">
+							
+								<h:outputText value="MovimientoPollos"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="TresCruces"/>
+								<h:outputText value="#{exportadorExcelBean.tt3}"/>
+								<h:outputText value="#{exportadorExcelBean.ts3}"/>
+								<h:outputText value="#{exportadorExcelBean.tc3}"/>
+								<h:outputText value="#{exportadorExcelBean.tp3}"/>
+								
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="#{exportadorExcelBean.st3}"/>
+								<h:outputText value="#{exportadorExcelBean.ss3}"/>
+								<h:outputText value="#{exportadorExcelBean.sc3}"/>
+								<h:outputText value="#{exportadorExcelBean.sp3}"/>
+								
+								<h:outputText value="Condesa"/>
+								<h:outputText value="#{exportadorExcelBean.ct3}"/>
+								<h:outputText value="#{exportadorExcelBean.cs3}"/>
+								<h:outputText value="#{exportadorExcelBean.cc3}"/>
+								<h:outputText value="#{exportadorExcelBean.cp3}"/>
+								
+								<h:outputText value="Panteones"/>
+								<h:outputText value="#{exportadorExcelBean.pt3}"/>
+								<h:outputText value="#{exportadorExcelBean.ps3}"/>
+								<h:outputText value="#{exportadorExcelBean.pc3}"/>
+								<h:outputText value="#{exportadorExcelBean.pp3}"/>
+								
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								
+								<h:outputText value="MovimientoPapas"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="TresCruces"/>
+								<h:outputText value="#{exportadorExcelBean.tt4}"/>
+								<h:outputText value="#{exportadorExcelBean.ts4}"/>
+								<h:outputText value="#{exportadorExcelBean.tc4}"/>
+								<h:outputText value="#{exportadorExcelBean.tp4}"/>
+								
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="#{exportadorExcelBean.st4}"/>
+								<h:outputText value="#{exportadorExcelBean.ss4}"/>
+								<h:outputText value="#{exportadorExcelBean.sc4}"/>
+								<h:outputText value="#{exportadorExcelBean.sp4}"/>
+								
+								<h:outputText value="Condesa"/>
+								<h:outputText value="#{exportadorExcelBean.ct4}"/>
+								<h:outputText value="#{exportadorExcelBean.cs4}"/>
+								<h:outputText value="#{exportadorExcelBean.cc4}"/>
+								<h:outputText value="#{exportadorExcelBean.cp4}"/>
+								
+								<h:outputText value="Panteones"/>
+								<h:outputText value="#{exportadorExcelBean.pt4}"/>
+								<h:outputText value="#{exportadorExcelBean.ps4}"/>
+								<h:outputText value="#{exportadorExcelBean.pc4}"/>
+								<h:outputText value="#{exportadorExcelBean.pp4}"/>
+								
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Venta Piezas"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="2"/>
+								<h:outputText value="#{exportadorExcelBean.t21}"/>
+								<h:outputText value="#{exportadorExcelBean.s21}"/>
+								<h:outputText value="#{exportadorExcelBean.c21}"/>
+								<h:outputText value="#{exportadorExcelBean.p21}"/>
+								
+								<h:outputText value="1.5"/>
+								<h:outputText value="#{exportadorExcelBean.t151}"/>
+								<h:outputText value="#{exportadorExcelBean.s151}"/>
+								<h:outputText value="#{exportadorExcelBean.c151}"/>
+								<h:outputText value="#{exportadorExcelBean.p151}"/>
+								
+								<h:outputText value=".5"/>
+								<h:outputText value="#{exportadorExcelBean.t51}"/>
+								<h:outputText value="#{exportadorExcelBean.s51}"/>
+								<h:outputText value="#{exportadorExcelBean.c51}"/>
+								<h:outputText value="#{exportadorExcelBean.p51}"/>
+								
+								<h:outputText value=".25"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								
+								<h:outputText value="Pollos Quedaron"/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+								<h:outputText value=""/>
+							
+								<h:outputText value="Remolque"/>
+								<h:outputText value="Tres Cruces"/>
+								<h:outputText value="Sauceda"/>
+								<h:outputText value="Condesa"/>
+								<h:outputText value="Panteones"/>
+								
+								<h:outputText value="Pollos"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.polloQuedaronPanteonesD}"/>
+								
+								<h:outputText value="Papas"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronTresCrucesD}"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronSaucedaD}"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronCondesaD}"/>
+								<h:outputText value="#{exportadorExcelBean.papaQuedaronPanteonesD}"/>
+								
+							</h:panelGrid>
+							
+						</h:panelGrid>
+						
+						<h:panelGrid id="gastos" columns="2">
+						
+							<rich:dataTable id="tablaSueldos" value="#{exportadorExcelBean.sueldos}" var="listaSueldos" >
+								<rich:column>
+									<f:facet name="header">
+										<h:outputText value=""></h:outputText>
+									</f:facet>
+									<h:outputText value="#{listaSueldos.nombre}"></h:outputText>
+								</rich:column>
+								
+								<rich:column>
+									<f:facet name="header">
+										<h:outputText value="Sueldos"></h:outputText>
+									</f:facet>
+									<h:outputText value="#{listaSueldos.importe}"></h:outputText>
+								</rich:column>
+								
+							</rich:dataTable>
+							
+							<rich:dataTable id="tablaGastos" value="#{exportadorExcelBean.gastos}" var="listaGastos" >
+								<rich:column>
+									<f:facet name="header">
+										<h:outputText value=""></h:outputText>
+									</f:facet>
+									<h:outputText value="#{listaGastos.nombre}"></h:outputText>
+								</rich:column>
+								
+								<rich:column>
+									<f:facet name="header">
+										<h:outputText value="Gastos"></h:outputText>
+									</f:facet>
+									<h:outputText value="#{listaGastos.importe}"></h:outputText>
+								</rich:column>
+							
+							</rich:dataTable>
+							
+						</h:panelGrid>
+					</h:form>
+				</rich:panel>
+			</h:panelGrid></center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</html>
