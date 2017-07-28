@@ -226,9 +226,32 @@
 			<value>#{empleado}</value>
 		</managed-property>
 		<managed-property>
+			<property-name>actividad</property-name>
+			<property-class>com.mx.pollos.model.Actividad</property-class>
+			<value>#{actividad}</value>
+		</managed-property>
+		<managed-property>
 			<property-name>empleadoService</property-name>
 			<property-class>com.mx.pollos.service.EmpleadoService</property-class>
-			<value>#{empleadosService}</value>
+			<value>#{empleadoService}</value>
+		</managed-property>
+	</managed-bean>
+
+	<!-- Modulo de registro ventas -->
+
+	<managed-bean>
+		<managed-bean-name>registroVentasBean</managed-bean-name>
+		<managed-bean-class>com.mx.pollos.bean.RegistroVentasBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>semana</property-name>
+			<property-class>com.mx.pollos.model.Semana</property-class>
+			<value>#{semana}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>empleadoService</property-name>
+			<property-class>com.mx.pollos.service.EmpleadoService</property-class>
+			<value>#{empleadoService}</value>
 		</managed-property>
 	</managed-bean>
 
@@ -249,6 +272,7 @@
 			<to-view-id>/pages/menu.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
 	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
@@ -354,6 +378,15 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<display-name>actividades.xhtml</display-name>
+		<from-view-id>/catalogos/actividades.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
 		<navigation-case>
@@ -457,6 +490,15 @@
 			<to-view-id>/findesemana/pagoempleados.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>comidas.xhtml</display-name>
+		<from-view-id>/catalogos/comidas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
@@ -562,6 +604,15 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<display-name>empleados.xhtml</display-name>
+		<from-view-id>/catalogos/empleados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
 		<navigation-case>
@@ -665,6 +716,15 @@
 			<to-view-id>/findesemana/pagoempleados.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>gastos.xhtml</display-name>
+		<from-view-id>/catalogos/gastos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
@@ -770,6 +830,15 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<display-name>piezas.xhtml</display-name>
+		<from-view-id>/catalogos/piezas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
 		<navigation-case>
@@ -873,6 +942,15 @@
 			<to-view-id>/findesemana/pagoempleados.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>productos.xhtml</display-name>
+		<from-view-id>/catalogos/productos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
@@ -978,6 +1056,15 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<display-name>remolques.xhtml</display-name>
+		<from-view-id>/catalogos/remolques.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
 		<navigation-case>
@@ -1082,6 +1169,15 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<display-name>semanas.xhtml</display-name>
+		<from-view-id>/catalogos/semanas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
 		<from-view-id>/pages/menu.xhtml</from-view-id>
 		<navigation-case>
@@ -1185,6 +1281,14 @@
 			<to-view-id>/findesemana/pagoempleados.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>servicios.xhtml</display-name>
+		<from-view-id>/catalogos/servicios.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 	<navigation-rule>
 		<display-name>menu.xhtml</display-name>
@@ -1208,6 +1312,14 @@
 		<navigation-case>
 			<from-outcome>agregar</from-outcome>
 			<to-view-id>/findesemana/AgregarPagoEmpleado.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>AgregarPagoEmpleado.xhtml</display-name>
+		<from-view-id>/findesemana/AgregarPagoEmpleado.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>pagoempleados</from-outcome>
+			<to-view-id>/findesemana/pagoempleados.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -1282,7 +1394,127 @@
 			<to-view-id>/catalogos/servicios.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>pagoempleados.xhtml</display-name>
+		<from-view-id>/findesemana/pagoempleados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
+	<navigation-rule>
+		<display-name>menu.xhtml</display-name>
+		<from-view-id>/pages/menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>agregar</from-outcome>
+			<to-view-id>/findesemana/AgregarRegistroVentas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>AgregarRegistroVentas.xhtml</display-name>
+		<from-view-id>/findesemana/AgregarRegistroVentas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>registroventas</from-outcome>
+			<to-view-id>/findesemana/registroventas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>actividades</from-outcome>
+			<to-view-id>/catalogos/actividades.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>comidas</from-outcome>
+			<to-view-id>/catalogos/comidas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>empleados</from-outcome>
+			<to-view-id>/catalogos/empleados.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>gastos</from-outcome>
+			<to-view-id>/catalogos/gastos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>piezas</from-outcome>
+			<to-view-id>/catalogos/piezas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>productos</from-outcome>
+			<to-view-id>/catalogos/productos.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>remolques</from-outcome>
+			<to-view-id>/catalogos/remolques.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>semanas</from-outcome>
+			<to-view-id>/catalogos/semanas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>servicios</from-outcome>
+			<to-view-id>/catalogos/servicios.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>registroventas.xhtml</display-name>
+		<from-view-id>/findesemana/registroventas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>pagoempleados</from-outcome>
+			<to-view-id>/findesemana/pagoempleados.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	
 	<!-- Contextos Sping, Facelest -->
 	<application>

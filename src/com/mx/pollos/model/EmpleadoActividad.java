@@ -49,7 +49,7 @@ public class EmpleadoActividad implements java.io.Serializable {
 		this.idEmpleadoActividad = idEmpleadoActividad;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "empleado", nullable = false)
 	public Empleado getEmpleado() {
 		return this.empleado;
@@ -59,7 +59,7 @@ public class EmpleadoActividad implements java.io.Serializable {
 		this.empleado = empleado;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "actividad", nullable = false)
 	public Actividad getActividad() {
 		return this.actividad;
@@ -69,7 +69,7 @@ public class EmpleadoActividad implements java.io.Serializable {
 		this.actividad = actividad;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "semana", nullable = false)
 	public Semana getSemana() {
 		return this.semana;

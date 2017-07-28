@@ -20,11 +20,17 @@
 					<h:form id="ModifucarPagoEmpleadoForm">
 						<h:panelGrid id="lpg" columns="3">		
 							<h:outputText  value="Semana  "></h:outputText>
-							<rich:comboBox value="#{pagoEmpleadosBean.empleadoActividad.semana}" suggestionValues="#{pagoEmpleadosBean.semanas}" defaultLabel="Seleccione una semana..." /><br/>
+							<h:selectOneMenu value="#{pagoEmpleadosBean.empleadoActividad.semana.idSemana}" defaultLabel="Seleccione una semana..." >
+								<f:selectItems value="#{pagoEmpleadosBean.semanasItem}" />
+							</h:selectOneMenu><br/>
 							<h:outputText  value="Empleado  "></h:outputText>
-							<rich:comboBox value="#{pagoEmpleadosBean.empleadoActividad.empleado}" suggestionValues="#{pagoEmpleadosBean.empleados}" defaultLabel="Seleccione un empleado..." /><br/>
+							<h:selectOneMenu value="#{pagoEmpleadosBean.empleadoActividad.empleado.idEmpleado}" defaultLabel="Seleccione un empleado..." >
+								<f:selectItems value="#{pagoEmpleadosBean.empleadosItem}" />
+							</h:selectOneMenu><br/>
 							<h:outputText  value="Actividad  "></h:outputText>
-							<rich:comboBox value="#{pagoEmpleadosBean.empleadoActividad.actividad}" suggestionValues="#{pagoEmpleadosBean.actividades}" defaultLabel="Seleccione una actividad..." /><br/>
+							<h:selectOneMenu value="#{pagoEmpleadosBean.empleadoActividad.actividad.idActividad}" defaultLabel="Seleccione una actividad..." >
+								<f:selectItems value="#{pagoEmpleadosBean.actividadesItem}" />
+							</h:selectOneMenu><br/>
 							<h:commandButton id="cbtnGuardar" value="Guardar" action="#{pagoEmpleadosBean.agregar}" />
 							<h:commandButton id="cbtnCancelar" value="Cancelar" action="#{pagoEmpleadosBean.llenarTabla}" /><br/>
 						</h:panelGrid>	

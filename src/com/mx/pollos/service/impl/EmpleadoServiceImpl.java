@@ -127,5 +127,25 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	public List<Semana> buscarSemana(Semana semana) {
 		return semanaService.buscarSemana(semana);
 	}
+
+	@Override
+	public Semana buscarSemanaId(Integer id) {
+		return semanaService.buscarId(id);
+	}
+
+	@Override
+	public Boolean asignarActividadEmpleado(Actividad actividad, Empleado empleado, Semana semana) {
+		return empleadoActividadDAO.insertarModificar(new EmpleadoActividad(empleado, actividad, semana));
+	}
+
+	@Override
+	public List<EmpleadoActividad> buscarEmpleadoActividad(EmpleadoActividad empleadoActividad) {
+		return empleadoActividadDAO.buscar(empleadoActividad);
+	}
+
+	@Override
+	public Boolean desasignarActividadEmpleado(Actividad actividad, Empleado empleado, Semana semana) {
+		return empleadoActividadDAO.eliminar(empleadoActividadDAO.buscar(new EmpleadoActividad(empleado, actividad, semana)).get(0));
+	}
 	
 }

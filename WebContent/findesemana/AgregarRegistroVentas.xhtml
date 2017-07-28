@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<title>Agregar/Modificar Registro Ventas</title>
+</head>
+<body>
+
+<ui:composition template="../template2.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center><h:panelGrid columns="3" border="0">
+				<rich:panel header="Modificar/Agregar Registro Ventas" style="background-color: #ebf3fd;">
+					<h:form id="ModifucarPagoEmpleadoForm">
+						<h:panelGrid id="movimientoPollos" columns="3">		
+							<h:outputText  value="Semana  "></h:outputText>
+							<h:selectOneMenu value="#{registroVentasBean.semana}" defaultLabel="Seleccione una semana..." >
+								<f:selectItems value="#{registroVentasBean.semanasItem}" />
+							</h:selectOneMenu><br/>
+							<h:outputText  value="Dia  "></h:outputText>
+							<h:selectOneMenu value="#{registroVentasBean.dia}" defaultLabel="Seleccione un dia..." >
+								<f:selectItem 
+									itemValue="1"
+							        itemLabel="Sabado"/>
+							    <f:selectItem
+							        itemValue="2"
+							        itemLabel="Domingo"/>
+							</h:selectOneMenu><br/>   
+						</h:panelGrid>	
+						<h:panelGrid id="piezasS" columns="5">
+							<h:outputText value="MovimientoPollos"/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+						
+							<h:outputText value="Remolque"/>
+							<h:outputText value="Tres Cruces"/>
+							<h:outputText value="Sauceda"/>
+							<h:outputText value="Condesa"/>
+							<h:outputText value="Panteones"/>
+							
+							<h:outputText value="TresCruces"/>
+							<h:outputText value="#{registroVentasBean.tt}"/>
+							<h:inputText value="#{registroVentasBean.ts}" onChange/>
+							<h:inputText value="#{registroVentasBean.tc}"/>
+							<h:inputText value="#{registroVentasBean.tp}"/>
+							
+							<h:outputText value="Sauceda"/>
+							<h:inputText value="#{registroVentasBean.st}"/>
+							<h:outputText value="#{registroVentasBean.ss}"/>
+							<h:inputText value="#{registroVentasBean.sc}"/>
+							<h:inputText value="#{registroVentasBean.sp}"/>
+							
+							<h:outputText value="Condesa"/>
+							<h:inputText value="#{registroVentasBean.ct}"/>
+							<h:inputText value="#{registroVentasBean.cs}"/>
+							<h:outputText value="#{registroVentasBean.cc}"/>
+							<h:inputText value="#{registroVentasBean.cp}"/>
+							
+							<h:outputText value="Panteones"/>
+							<h:inputText value="#{registroVentasBean.pt}"/>
+							<h:inputText value="#{registroVentasBean.ps}"/>
+							<h:inputText value="#{registroVentasBean.pc}"/>
+							<h:outputText value="#{registroVentasBean.pp}"/>
+							
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							
+							<h:outputText value="MovimientoPapas"/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+						
+							<h:outputText value="Remolque"/>
+							<h:outputText value="Tres Cruces"/>
+							<h:outputText value="Sauceda"/>
+							<h:outputText value="Condesa"/>
+							<h:outputText value="Panteones"/>
+							
+							<h:outputText value="TresCruces"/>
+							<h:outputText value="#{registroVentasBean.tt2}"/>
+							<h:inputText value="#{registroVentasBean.ts2}"/>
+							<h:inputText value="#{registroVentasBean.tc2}"/>
+							<h:inputText value="#{registroVentasBean.tp2}"/>
+							
+							<h:outputText value="Sauceda"/>
+							<h:inputText value="#{registroVentasBean.st2}"/>
+							<h:outputText value="#{registroVentasBean.ss2}"/>
+							<h:inputText value="#{registroVentasBean.sc2}"/>
+							<h:inputText value="#{registroVentasBean.sp2}"/>
+							
+							<h:outputText value="Condesa"/>
+							<h:inputText value="#{registroVentasBean.ct2}"/>
+							<h:inputText value="#{registroVentasBean.cs2}"/>
+							<h:outputText value="#{registroVentasBean.cc2}"/>
+							<h:inputText value="#{registroVentasBean.cp2}"/>
+							
+							<h:outputText value="Panteones"/>
+							<h:inputText value="#{registroVentasBean.pt2}"/>
+							<h:inputText value="#{registroVentasBean.ps2}"/>
+							<h:inputText value="#{registroVentasBean.pc2}"/>
+							<h:outputText value="#{registroVentasBean.pp2}"/>
+							
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+						
+							<h:outputText value="Venta Piezas"/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+						
+							<h:outputText value="Remolque"/>
+							<h:outputText value="Tres Cruces"/>
+							<h:outputText value="Sauceda"/>
+							<h:outputText value="Condesa"/>
+							<h:outputText value="Panteones"/>
+							
+							<h:outputText value="2"/>
+							<h:inputText value="#{registroVentasBean.t2}"/>
+							<h:inputText value="#{registroVentasBean.s2}"/>
+							<h:inputText value="#{registroVentasBean.c2}"/>
+							<h:inputText value="#{registroVentasBean.p2}"/>
+							
+							<h:outputText value="1.5"/>
+							<h:inputText value="#{registroVentasBean.t15}"/>
+							<h:inputText value="#{registroVentasBean.s15}"/>
+							<h:inputText value="#{registroVentasBean.c15}"/>
+							<h:inputText value="#{registroVentasBean.p15}"/>
+							
+							<h:outputText value=".5"/>
+							<h:inputText value="#{registroVentasBean.t5}"/>
+							<h:inputText value="#{registroVentasBean.s5}"/>
+							<h:inputText value="#{registroVentasBean.c5}"/>
+							<h:inputText value="#{registroVentasBean.p5}"/>
+							
+							<h:outputText value=".25"/>
+							<h:inputText value=""/>
+							<h:inputText value=""/>
+							<h:inputText value=""/>
+							<h:inputText value=""/>
+							
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							
+							<h:outputText value="Pollos Quedaron"/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+						
+							<h:outputText value="Remolque"/>
+							<h:outputText value="Tres Cruces"/>
+							<h:outputText value="Sauceda"/>
+							<h:outputText value="Condesa"/>
+							<h:outputText value="Panteones"/>
+							
+							<h:outputText value="Pollos"/>
+							<h:inputText value="#{registroVentasBean.polloQuedaronTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.polloQuedaronSauceda}"/>
+							<h:inputText value="#{registroVentasBean.polloQuedaronCondesa}"/>
+							<h:inputText value="#{registroVentasBean.polloQuedaronPanteones}"/>
+							
+							<h:outputText value="Papas"/>
+							<h:inputText value="#{registroVentasBean.papaQuedaronTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.papaQuedaronSauceda}"/>
+							<h:inputText value="#{registroVentasBean.papaQuedaronCondesa}"/>
+							<h:inputText value="#{registroVentasBean.papaQuedaronPanteones}"/>
+						</h:panelGrid>
+						<h:panelGrid id="ventaS" columns="5">
+						
+							<h:outputText value="Gastos Fin de Semana"/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+							<h:outputText value=""/>
+						
+							<h:outputText value="Remolque"/>
+							<h:outputText value="Tres Cruces"/>
+							<h:outputText value="Sauceda"/>
+							<h:outputText value="Condesa"/>
+							<h:outputText value="Panteones"/>
+							
+							<h:outputText value="Pollos"/>
+							<h:inputText value="#{registroVentasBean.pollosTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.pollosSauceda}"/>
+							<h:inputText value="#{registroVentasBean.pollosCondesa}"/>
+							<h:inputText value="#{registroVentasBean.pollosPanteones}"/>
+							
+							<h:outputText value="Papas"/>
+							<h:inputText value="#{registroVentasBean.papasTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.papasSauceda}"/>
+							<h:inputText value="#{registroVentasBean.papasCondesa}"/>
+							<h:inputText value="#{registroVentasBean.papasPanteones}"/>
+							
+							<h:outputText value="Pollos Mov"/>
+							<h:outputText value="#{registroVentasBean.pollosMovTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.pollosMovSauceda}"/>
+							<h:outputText value="#{registroVentasBean.pollosMovCondesa}"/>
+							<h:outputText value="#{registroVentasBean.pollosMovPanteones}"/>
+							
+							<h:outputText value="Papas Mov"/>
+							<h:outputText value="#{registroVentasBean.papasMovTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.papasMovSauceda}"/>
+							<h:outputText value="#{registroVentasBean.papasMovCondesa}"/>
+							<h:outputText value="#{registroVentasBean.papasMovPanteones}"/>
+							
+							<h:outputText value="Venta Pollos"/>
+							<h:outputText value="#{registroVentasBean.ventaPollosTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.ventaPollosSauceda}"/>
+							<h:outputText value="#{registroVentasBean.ventaPollosCondesa}"/>
+							<h:outputText value="#{registroVentasBean.ventaPollosPanteones}"/>
+							
+							<h:outputText value="Venta Papas"/>
+							<h:outputText value="#{registroVentasBean.ventaPapasTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.ventaPapasSauceda}"/>
+							<h:outputText value="#{registroVentasBean.ventaPapasCondesa}"/>
+							<h:outputText value="#{registroVentasBean.ventaPapasPanteones}"/>
+							
+							<h:outputText value="Venta Total"/>
+							<h:outputText value="#{registroVentasBean.ventaTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.ventaSauceda}"/>
+							<h:outputText value="#{registroVentasBean.ventaCondesa}"/>
+							<h:outputText value="#{registroVentasBean.ventaPanteones}"/>
+							
+							<h:outputText value="Maletin"/>
+							<h:inputText value="#{registroVentasBean.maletinTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.maletinSauceda}"/>
+							<h:inputText value="#{registroVentasBean.maletinCondesa}"/>
+							<h:inputText value="#{registroVentasBean.maletinPanteones}"/>
+							
+							<h:outputText value="Comida"/>
+							<h:inputText value="#{registroVentasBean.comidaTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.comidaSauceda}"/>
+							<h:inputText value="#{registroVentasBean.comidaCondesa}"/>
+							<h:inputText value="#{registroVentasBean.comidaPanteones}"/>
+							
+							<h:outputText value="Refresco"/>
+							<h:inputText value="#{registroVentasBean.refrescoTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.refrescoSauceda}"/>
+							<h:inputText value="#{registroVentasBean.refrescoCondesa}"/>
+							<h:inputText value="#{registroVentasBean.refrescoPanteones}"/>
+							
+							<h:outputText value="Piezas"/>
+							<h:outputText value="#{registroVentasBean.pollosPiezasTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.pollosPiezasSauceda}"/>
+							<h:outputText value="#{registroVentasBean.pollosPiezasCondesa}"/>
+							<h:outputText value="#{registroVentasBean.pollosPiezasPanteones}"/>
+							
+							<h:outputText value="Descuentos"/>
+							<h:inputText value="#{registroVentasBean.descuentosTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.descuentosSauceda}"/>
+							<h:inputText value="#{registroVentasBean.descuentosCondesa}"/>
+							<h:inputText value="#{registroVentasBean.descuentosPanteones}"/>
+							
+							<h:outputText value="Pollos Quedaron"/>
+							<h:inputText value="#{registroVentasBean.pollosQuedaronTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.pollosQuedaronSauceda}"/>
+							<h:inputText value="#{registroVentasBean.pollosQuedaronCondesa}"/>
+							<h:inputText value="#{registroVentasBean.pollosQuedaronPanteones}"/>
+							
+							<h:outputText value="Dinero Pollos"/>
+							<h:outputText value="#{registroVentasBean.pollosQuedaronDineroTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.pollosQuedaronDineroSauceda}"/>
+							<h:outputText value="#{registroVentasBean.pollosQuedaronDineroCondesa}"/>
+							<h:outputText value="#{registroVentasBean.pollosQuedaronDineroPanteones}"/>
+							
+							<h:outputText value="Otros Gastos"/>
+							<h:inputText value="#{registroVentasBean.otrosGastosTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.otrosGastosSauceda}"/>
+							<h:inputText value="#{registroVentasBean.otrosGastosCondesa}"/>
+							<h:inputText value="#{registroVentasBean.otrosGastosPanteones}"/>
+							
+							<h:outputText value="Dinero"/>
+							<h:outputText value="#{registroVentasBean.dineroTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.dineroSauceda}"/>
+							<h:outputText value="#{registroVentasBean.dineroCondesa}"/>
+							<h:outputText value="#{registroVentasBean.dineroPanteones}"/>
+							
+							<h:outputText value="Billetes"/>
+							<h:inputText value="#{registroVentasBean.billetesTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.billetesSauceda}"/>
+							<h:inputText value="#{registroVentasBean.billetesCondesa}"/>
+							<h:inputText value="#{registroVentasBean.billetesPanteones}"/>
+							
+							<h:outputText value="Monedas"/>
+							<h:inputText value="#{registroVentasBean.monedasTresCruces}"/>
+							<h:inputText value="#{registroVentasBean.monedasSauceda}"/>
+							<h:inputText value="#{registroVentasBean.monedasCondesa}"/>
+							<h:inputText value="#{registroVentasBean.monedasPanteones}"/>
+							
+							<h:outputText value="Total"/>
+							<h:outputText value="#{registroVentasBean.totalTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.totalSauceda}"/>
+							<h:outputText value="#{registroVentasBean.totalCondesa}"/>
+							<h:outputText value="#{registroVentasBean.totalPanteones}"/>
+							
+							<h:outputText value="Diferencia"/>
+							<h:outputText value="#{registroVentasBean.diferenciaTresCruces}"/>
+							<h:outputText value="#{registroVentasBean.diferenciaSauceda}"/>
+							<h:outputText value="#{registroVentasBean.diferenciaCondesa}"/>
+							<h:outputText value="#{registroVentasBean.diferenciaPanteones}"/>
+						</h:panelGrid>
+						<h:commandButton id="cbtnGuardar" value="Guardar" action="#{registroVentasBean.agregar}" />
+						<h:commandButton id="cbtnCancelar" value="Cancelar" action="#{registroVentasBean.llenarTabla}" /><br/>
+					</h:form>
+				</rich:panel>
+			</h:panelGrid></center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+</body>
+</html>

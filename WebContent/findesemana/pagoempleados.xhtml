@@ -14,7 +14,7 @@
 				<rich:panel id="pnpagoempleados" style="height:300px;width: 600px;">
 					<h:form>
 					<h:outputText value="" />
-					<rich:dataTable value="#{pagoEmpleadosBean.pagos}" var="pagoLista"
+					<rich:dataTable value="#{pagoEmpleadosBean.empleadosActividad}" var="empleados"
 						align="center">
 						<f:facet name="header">
 							<h:outputText value="Lista Pagos" />
@@ -23,13 +23,19 @@
 							<f:facet name="header">
 								<h:outputText value="Semana" />
 							</f:facet>
-							<h:outputText value="#{pagoLista.idSemana}" />
+							<h:outputText value="#{empleados.semana.idSemana}" />
 						</rich:column>
 						<rich:column>
 							<f:facet name="header">
-								<h:outputText value="Importe" />
+								<h:outputText value="Empleado" />
 							</f:facet>
-							<h:outputText value="#{pagoLista.importe}" />
+							<h:outputText value="#{empleados.empleado.nombre}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Actividad" />
+							</f:facet>
+							<h:outputText value="#{empleados.actividad.descripcion} = #{empleados.actividad.importe}" />
 						</rich:column>
 						<rich:column align="center">
 							<f:facet name="header">
@@ -38,19 +44,11 @@
 							<a4j:commandLink ajaxSingle="true" id="eliminarLink"
 								action="#{pagoEmpleadosBean.borrar}">
 								<h:graphicImage value="../imagenes/borrar.png" style="border:0" width="20" height="20" />
-								<f:param id="idSemana" name="idSemana" value="#{pagoLista.idSemana}" />
+								<f:param id="idSemana" name="idSemana" value="#{empleados.semana.idSemana}" />
+								<f:param id="idEmpleado" name="idEmpleado" value="#{empleados.empleado.idEmpleado}" />
+								<f:param id="idActividad" name="idActividad" value="#{empleados.actividad.idActividad}" />
 							</a4j:commandLink>
 							</rich:column>
-						<rich:column align="center">
-							<f:facet name="header" >
-								<h:outputText value="Modificar" />
-							</f:facet>
-							<a4j:commandLink ajaxSingle="true" id="modificarLink"
-								action="#{pagoEmpleadosBean.modificar}">
-								<h:graphicImage value="../imagenes/modificar.png" style="border:0" width="20" height="20" aling="center"/>
-								<f:param id="idSemanaM" name="idSemanaM" value="#{pagoLista.idSemana}" />
-							</a4j:commandLink>
-						</rich:column>
 					</rich:dataTable>
 					<h:commandButton id="cbtnAgregar" value="Agregar" action="#{pagoEmpleadosBean.inicioAgregar}" />
 					<h:commandButton id="cbtnBuscar" value="Buscar" action="#{pagoEmpleadosBean.buscar}" />

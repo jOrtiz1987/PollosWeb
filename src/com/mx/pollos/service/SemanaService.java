@@ -14,6 +14,8 @@ public interface SemanaService {
 	
 	public Semana obtenerSemana(Date fecha);
 	
+	public Semana buscarId(Integer id);
+	
 	public List<Semana> buscarSemana(Semana semana);
 	
 	public SemanaDia obtenerSemanaDia(Semana semana, Date fecha);

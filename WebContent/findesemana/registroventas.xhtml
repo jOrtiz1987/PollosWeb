@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	
+<ui:composition template="../template.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<center>
+				<rich:panel id="pnregistroventas" style="height:300px;width: 600px;">
+					<h:form>
+					<h:outputText value="" />
+					<rich:dataTable value="#{registroVentasBean.ventasSemana}" var="ventas"
+						align="center">
+						<f:facet name="header">
+							<h:outputText value="Lista Semanas" />
+						</f:facet>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Semana" />
+							</f:facet>
+							<h:outputText value="#{ventas.idSemana}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Gastos" />
+							</f:facet>
+							<h:outputText value="#{ventas.gastos}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Sueldos" />
+							</f:facet>
+							<h:outputText value="#{ventas.sueldos}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Productos" />
+							</f:facet>
+							<h:outputText value="#{ventas.productos}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Ingresos" />
+							</f:facet>
+							<h:outputText value="#{ventas.ingresos}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="Ganancia" />
+							</f:facet>
+							<h:outputText value="#{ventas.ganancia}" />
+						</rich:column>
+					</rich:dataTable>
+					<h:commandButton id="cbtnAgregar" value="Agregar" action="#{registroVentasBean.inicioAgregar}" />
+					</h:form>
+				</rich:panel>
+			</center>
+		</f:view>
+	</ui:define>
+</ui:composition>
+
+</html>

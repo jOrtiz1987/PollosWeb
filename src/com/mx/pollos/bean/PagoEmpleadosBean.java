@@ -1,13 +1,15 @@
 package com.mx.pollos.bean;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 import com.mx.pollos.model.Actividad;
 import com.mx.pollos.model.Empleado;
 import com.mx.pollos.model.EmpleadoActividad;
-import com.mx.pollos.model.PagoEmpleados;
+//import com.mx.pollos.model.PagoEmpleados;
 import com.mx.pollos.model.Semana;
 import com.mx.pollos.service.EmpleadoService;
 
@@ -23,16 +25,61 @@ public class PagoEmpleadosBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Empleado empleado;
-	private List<Empleado> empleados;
-	private Semana semana;
+	private Actividad actividad;
+	private ArrayList<SelectItem> empleadosItem;
+	private ArrayList<SelectItem> actividadesItem;
+	private ArrayList<SelectItem> semanasItem;
 	private List<Semana> semanas;
 	private List<Actividad> actividades;
+	private List<Empleado> empleados;
+	private Semana semana;
 	private EmpleadoActividad empleadoActividad;
 	private EmpleadoService empleadoService;
-	private List<PagoEmpleados> pagos;
+	//private List<PagoEmpleados> pagos;
+	private List<EmpleadoActividad> empleadosActividad;
 	
 	
 	
+	public Actividad getActividad() {
+		return actividad;
+	}
+
+	public void setActividad(Actividad actividad) {
+		this.actividad = actividad;
+	}
+
+	public List<EmpleadoActividad> getEmpleadosActividad() {
+		return empleadosActividad;
+	}
+
+	public void setEmpleadosActividad(List<EmpleadoActividad> empleadosActividad) {
+		this.empleadosActividad = empleadosActividad;
+	}
+
+	public ArrayList<SelectItem> getEmpleadosItem() {
+		return empleadosItem;
+	}
+
+	public void setEmpleadosItem(ArrayList<SelectItem> empleadosItem) {
+		this.empleadosItem = empleadosItem;
+	}
+
+	public ArrayList<SelectItem> getActividadesItem() {
+		return actividadesItem;
+	}
+
+	public void setActividadesItem(ArrayList<SelectItem> actividadesItem) {
+		this.actividadesItem = actividadesItem;
+	}
+
+	public ArrayList<SelectItem> getSemanasItem() {
+		return semanasItem;
+	}
+
+	public void setSemanasItem(ArrayList<SelectItem> semanasItem) {
+		this.semanasItem = semanasItem;
+	}
+
 	public List<Empleado> getEmpleados() {
 		return empleados;
 	}
@@ -81,13 +128,13 @@ public class PagoEmpleadosBean implements Serializable{
 		this.semana = semana;
 	}
 
-	public List<PagoEmpleados> getPagos() {
+	/*public List<PagoEmpleados> getPagos() {
 		return pagos;
 	}
 
 	public void setPagos(List<PagoEmpleados> pagos) {
 		this.pagos = pagos;
-	}
+	}*/
 
 	public void setEmpleadoService(EmpleadoService empleadoService) {
 		this.empleadoService = empleadoService;
@@ -105,7 +152,10 @@ public class PagoEmpleadosBean implements Serializable{
 
 	public String agregar(){
 		try{
-			
+			Actividad eActividad = empleadoService.buscarActividadId(empleadoActividad.getActividad().getIdActividad());
+			Empleado eEmpleado = empleadoService.buscarId(empleadoActividad.getEmpleado().getIdEmpleado());
+			Semana eSemana = empleadoService.buscarSemanaId(empleadoActividad.getSemana().getIdSemana());
+			empleadoService.asignarActividadEmpleado(eActividad, eEmpleado, eSemana);
 		}
 		catch(Exception exception){
 			exception.printStackTrace();
@@ -127,19 +177,13 @@ public class PagoEmpleadosBean implements Serializable{
 		return "";
 	}
 	
-	public String modificar(){
-		FacesContext fc = FacesContext.getCurrentInstance();
-		//actividad = empleadoService.buscarActividadId(Integer.parseInt(fc.getExternalContext().getRequestParameterMap().get("idActividadM")));
-		return inicioAgregar();
-	}
-	
 
 	public String llenarTabla(){
 		try{
 			empleado = new Empleado();
 			semana = new Semana();
 			empleadoActividad = new EmpleadoActividad();
-			//pagos = new 
+			empleadosActividad = empleadoService.buscarEmpleadoActividad(new EmpleadoActividad(new Empleado(), new Actividad(), new Semana()));
 		}
 		catch(Exception exception){
 			exception.printStackTrace();
@@ -149,14 +193,34 @@ public class PagoEmpleadosBean implements Serializable{
 	
 	public String borrar(){
 		FacesContext fc = FacesContext.getCurrentInstance();
-		//empleadoService.bajaActividad(empleadoService.buscarActividadId(Integer.parseInt(fc.getExternalContext().getRequestParameterMap().get("idActividad"))));
+		Integer idEmpleado = Integer.parseInt(fc.getExternalContext().getRequestParameterMap().get("idEmpleado"));
+		Integer idActividad = Integer.parseInt(fc.getExternalContext().getRequestParameterMap().get("idActividad"));
+		Integer idSemana = Integer.parseInt(fc.getExternalContext().getRequestParameterMap().get("idSemana"));
+		empleadoService.desasignarActividadEmpleado(empleadoService.buscarActividadId(idActividad), empleadoService.buscarId(idEmpleado), empleadoService.buscarSemanaId(idSemana));
 		return llenarTabla();
 	}
 	
 	public String inicioAgregar(){
+		SelectItem option;
 		actividades = empleadoService.buscarActividad(new Actividad());
+		actividadesItem = new ArrayList<SelectItem>();
+		for (Actividad actividad:actividades){
+			option = new SelectItem(actividad.getIdActividad(), actividad.getDescripcion());
+			actividadesItem.add(option);
+		}
 		empleados = empleadoService.buscarEmpleado(new Empleado());
+		empleadosItem = new ArrayList<SelectItem>();
+		for (Empleado empleado:empleados){
+			option = new SelectItem(empleado.getIdEmpleado(), empleado.getNombre());
+			empleadosItem.add(option);
+		}
 		semanas = empleadoService.buscarSemana(new Semana());
+		semanasItem = new ArrayList<SelectItem>();
+		for (Semana semana:semanas){
+			option = new SelectItem(semana.getIdSemana(), semana.getFechaInicio() + " / " + semana.getFechaFin());
+			semanasItem.add(option);
+		}
+		empleadoActividad = new EmpleadoActividad(new Empleado(), new Actividad(), new Semana());
 		return "agregar";
 	}
 

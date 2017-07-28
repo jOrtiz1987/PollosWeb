@@ -55,5 +55,10 @@ public class SemanaServiceImpl implements com.mx.pollos.service.SemanaService {
 	public List<Semana> buscarSemana(Semana semana) {
 		return semanaDAO.buscar(semana);
 	}
+
+	@Override
+	public Semana buscarId(Integer id) {
+		return semanaDAO.buscar(id);
+	}
 	
 }
